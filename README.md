@@ -1,59 +1,59 @@
-# CS210
+# CS210 Project Repository
 
 ## Overview
 
-Welcome to the CS210 Project Repository! In this project, I analyzed my IMDb ratings and Spotify data. Moreover, I tried to examine whether my movie taste and my music taste is diverse. At the end, I trained a machine learning model to predict my Watchlist that I scraped from IMDb website.
+Welcome to the CS210 Project Repository, an insightful journey into personal preferences in movies and music using data analytics. This project harnesses the power of data from two popular platforms, IMDb and Spotify, to delve into the nuances of individual taste in entertainment.
 
+### Data Acquisition and Analysis
 
-### Overview
-In the web scraping phase, data is extracted from IMDb. This involves using web scraping techniques to navigate through IMDb's pages and gather essential data, such as movie titles, genres, ratings, and more.
+#### IMDb Data:
+- **Method**: Web scraping with Python's Selenium and BeautifulSoup.
+- **Process**:
+  - Automated login using Chrome webdriver.
+  - Scraping personal ratings, movie titles, directors, genres, and other pertinent data.
+  - Merging scraped data with additional details like IMDb ratings, duration, and release year.
+  - Note: Some data inconsistencies were addressed, such as missing IMDb ratings for shows with non-English titles.
 
-### Tools and Techniques
+#### Spotify Data:
+- **Method**: Utilizing the Spotify API.
+- **Challenge**: Songs lack genre data; resolved by extracting genres using artist IDs.
 
-I used Selenium and BeautifulSoup libraries of Python to get my ratings. Initially, I created a Chrome webdriver. Then I redirected the driver to login page and send the keys for my account. Once I logged in driver get the page that contains my ratings. Before I write the HTML contents of the website to a file, there was a button to export your ratings data. However, it doesn't contain the stars information. Therefore, I scraped the stars, directors, title, genres, my ratings and votes myself. Then I merged that csv file with my dataframe to get the IMDb rating, duration and year because these informations cannot be scraped from that HTMLs. 
+### Machine Learning Application
+- **Model**: Random Forest Tree.
+- **Training**: 80% of personal movie ratings.
+- **Testing**: Remaining 20%.
+- **Application**: Predicting ratings for a personal watchlist.
+- **Unique Approach**: Analyzing Spotify data for genre preferences.
 
-For my Spotify data, I used Spotify API.
+### Objectives and Insights
+- **Primary Goal**: To understand and analyze personal trends and preferences in movies and music.
+- **Key Findings**:
+  - Dominant movie genre preference: Drama, amongst a diverse range.
+  - Rating behavior: Tendency to rate movies lower than their average IMDb scores.
+  - Music preferences: Strong inclination towards rock music, with morning listening habits.
+<img width="582" alt="image" src="https://github.com/suat0/CS210/assets/105522910/2c9500a0-d33b-45f2-8858-a6a95c72b3c0">
 
-As a machine learning model, I trained random forest tree. I used %80 of my ratings to train the model, and %20 of them to test the model. Then I gave my watchlist for model to predict my ratings. 
+<img width="516" alt="image" src="https://github.com/suat0/CS210/assets/105522910/ab24ffd9-cf10-4dba-ae53-a2441450024a">
 
-The IMDb rating of some shows couldn't be find from the csv file, because csv file contains the original name of those shows not the english name. Therefore, I dropped the IMDb ratings of those. 
+<img width="556" alt="image" src="https://github.com/suat0/CS210/assets/105522910/22843e8f-a616-40e5-9b2b-44526b37c8f8">
 
-In Spotify API, songs do not have genres. Therefore, I used artists' ids to find the genres of my top tracks.
+<img width="464" alt="image" src="https://github.com/suat0/CS210/assets/105522910/e1aa5631-05eb-4f75-9790-95c9148b3674">
 
-### Objective
-The goal here is to analyze various movie genres to understand trends, preferences and do the same for the spotify data to observe the diversity of genres of both my movie taste and my music taste.
+### Statistical Analysis
+- **Null Hypothesis**: I watch and listen diverse genres.
+- **Diversity in Taste**: Explored through 66 unique movie genres and 83 music genres.
+- **Statistical Test**: P-value of 0.23134171389514172 indicates a significant diversity in taste when considering a 0.05 significance level.
 
-### Findings
+### Visual Representations
+- Graphs and charts illustrating the distribution of ratings, genre preferences, and more, providing a visual narrative of the findings.
 
-Initially, I did some preliminary analysis on my datasets. I found out that "Drama" is the top genre I watched. However, other genres have also significant place in my movie taste. 
+### Usage Guidelines
+- **Execution**: The provided Jupyter Notebook is structured for step-by-step execution.
+- **Dependencies**: Ensure all necessary libraries (selenium, matplotlib, numpy, pandas, sklearn, seaborn) are installed.
 
-![image](https://github.com/suat0/CS210/assets/105522910/ab1166c5-a010-4a35-93ec-88a9960af147)
-
-After that, I examine the distribution of my ratings and IMDb ratings. I found out that I usually watch movies that has 7.5 or more points, but I usually give those movies less points than the average. 
-
-![image](https://github.com/suat0/CS210/assets/105522910/04bff206-28ff-40f9-b0b1-eaf41d74a245)
-
-After that, I found the average ratings of the stars. Christian Bale has the most average rating by 8.5.
-
-<img width="376" alt="image" src="https://github.com/suat0/CS210/assets/105522910/a736683b-38ea-4892-b128-0a1a6909a186">
-
-From my Spotify data, I found out that my favourite artist İS Tame Impala these days. And also I tend to listen more music in the mornings according to that. I believe the reason behind is that I usually take a walk around those hours.
-
-![image](https://github.com/suat0/CS210/assets/105522910/a8dca45e-b507-4a21-b9a3-ef747715887e)
-
-Ultimately, my Hypothesis was that I have a diverse taste in musics and movies. I turns out that even though I like to watch a specific genre (Drama) more than others, I have watched 66 unique genres. Same goes for my music taste. I usually listen rock music but in general I have listened 83 unique genres. Also p-value of the movie genres and music genres is 0.23134171389514172. Therefore, if I accept 0.05 as my significance level, I cannot falsify my null hypothesis. Therefore, it means that I have not a bad diversity in my music and movie taste. 
-
-<img width="249" alt="Screenshot 2024-01-16 at 00 36 24" src="https://github.com/suat0/CS210/assets/105522910/04aefee4-7a57-4522-890b-2bd8e1d2c9bf">
-
-<img width="828" alt="image" src="https://github.com/suat0/CS210/assets/105522910/60601819-5a53-4ecf-9978-a34e691d6a90">
-
-<img width="392" alt="Screenshot 2024-01-16 at 00 16 59" src="https://github.com/suat0/CS210/assets/105522910/9f4c9625-c161-4112-a04e-2250ef89e5cc">
-
-### Usage
-
-This Jupyter Notebook can be run cell-by-cell to reproduce the analyses. Ensure all dependencies are installed and data sources are correctly linked before executing the cells.
-All the dependencies are included in the beginning of the ipynb. (selenium, matplotlib, numpy, pandas, sklearn, seaborn)
-
-### Author
-
+### About the Author
 Suat Emre Karabıçak
+
+### Additional Resources
+- **Presentation Video**: Access the project presentation video [here](https://drive.google.com/drive/folders/1xkIP7TTlolK6VJtu_ZkYwXAZz2D0a5RQ?usp=share_link).
+
